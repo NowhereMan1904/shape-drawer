@@ -50,4 +50,5 @@ int main(int argc, char *argv[])
  * TODO: QValidator class
  * TODO: Complete color combo box
  * TODO: Edit shapes
+ * TODO: Add "representation" virtual method in MyShape
  */
