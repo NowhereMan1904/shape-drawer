@@ -83,6 +83,11 @@ QPoint Dot::a() const
     return _p;
 }
 
+QPoint& Dot::rep()
+{
+    return a();
+}
+
 int Dot::type() const
 {
     return Type;

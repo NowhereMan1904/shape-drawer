@@ -46,6 +46,9 @@ public:
     Qt::PenStyle outline() const { return out; }
     Qt::GlobalColor color() const { return col; }
 
+    // Access to representation
+    virtual QPoint& rep() = 0;
+
 private:
     int thick;
     Qt::PenStyle out;

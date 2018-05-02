@@ -121,6 +121,11 @@ QPoint Line::b() const
     return _b;
 }
 
+QPoint& Line::rep()
+{
+    return b();
+}
+
 int Line::type() const
 {
     return Type;

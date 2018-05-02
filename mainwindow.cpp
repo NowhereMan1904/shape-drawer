@@ -118,22 +118,7 @@ void MainWindow::onMouseClick(QPoint pos)
 
 void MainWindow::onMouseMove(QPoint pos)
 {
-    switch (mode) {
-    case Mode::insDot:
-        qgraphicsitem_cast<Dot*>(tempShape)->a() = pos;
-        break;
-    case Mode::insLine:
-        qgraphicsitem_cast<Line*>(tempShape)->b() = pos;
-        break;
-    case Mode::insRect:
-        qgraphicsitem_cast<Rectangle*>(tempShape)->b() = pos;
-        break;
-    case Mode::insCircle:
-        qgraphicsitem_cast<Circle*>(tempShape)->r() = pos;
-        break;
-    default:
-        break;
-    }
+    tempShape->rep() = pos;
 }
 
 void MainWindow::undo()

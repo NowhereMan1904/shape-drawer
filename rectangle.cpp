@@ -121,6 +121,11 @@ QPoint Rectangle::b() const
     return _b;
 }
 
+QPoint& Rectangle::rep()
+{
+    return b();
+}
+
 int Rectangle::type() const
 {
     return Type;

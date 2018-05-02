@@ -36,6 +36,9 @@ public:
 
     QPoint r() const;
 
+    // Access to representation
+    QPoint& rep() override;
+
     // enable use of qgraphicsitem_cast
     int type() const override;
 

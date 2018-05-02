@@ -84,13 +84,13 @@ QPoint Circle::c() const
     return _c;
 }
 
-QPoint&Circle::c()
+QPoint& Circle::c()
 {
     prepareGeometryChange();
     return _c;
 }
 
-QPoint&Circle::r()
+QPoint& Circle::r()
 {
     prepareGeometryChange();
     return _r;
@@ -99,6 +99,11 @@ QPoint&Circle::r()
 QPoint Circle::r() const
 {
     return _r;
+}
+
+QPoint& Circle::rep()
+{
+    return r();
 }
 
 int Circle::type() const
