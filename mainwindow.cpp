@@ -72,7 +72,6 @@ void MainWindow::buttonGroupClicked(int i)
         redo();
         break;
     case Dot::Type:
-        _buttonGroup->button(i)->setChecked(true);
         mode = Mode::insDot;
         break;
     case Line::Type:
@@ -179,6 +178,7 @@ void MainWindow::createButtons()
     linePainter.setPen(QPen{Qt::black, 4});
     linePainter.drawLine(5,5,45,45);
     auto lineButton = new QPushButton(linePixmap, "Line");
+    lineButton->setCheckable(true);
 
     QPixmap rectPixmap(50,50);
     rectPixmap.fill(Qt::transparent);
@@ -186,6 +186,7 @@ void MainWindow::createButtons()
     rectPainter.setPen(QPen{Qt::black, 4});
     rectPainter.drawRect(5,10,40,30);
     auto rectButton = new QPushButton(rectPixmap, "Rectangle");
+    rectButton->setCheckable(true);
 
     QPixmap circlePixmap(50,50);
     circlePixmap.fill(Qt::transparent);
@@ -193,6 +194,7 @@ void MainWindow::createButtons()
     circlePainter.setPen(QPen{Qt::black, 4});
     circlePainter.drawEllipse(5,5,40,40);
     auto circleButton = new QPushButton(circlePixmap, "Circle");
+    circleButton->setCheckable(true);
 
     auto undoButton = new QPushButton(QIcon{":/undo.png"}, "Undo");
     undoButton->setEnabled(false);
