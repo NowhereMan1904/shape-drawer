@@ -201,20 +201,20 @@ void MainWindow::createButtons()
     auto redoButton = new QPushButton(QIcon{":/redo.png"}, "Redo");
     redoButton->setEnabled(false);
 
-    buttonLayout->addWidget(dotButton,  0, 0);
-    buttonLayout->addWidget(lineButton, 1, 0);
-    buttonLayout->addWidget(rectButton, 0, 1);
+    buttonLayout->addWidget(dotButton,    0, 0);
+    buttonLayout->addWidget(lineButton,   1, 0);
+    buttonLayout->addWidget(rectButton,   0, 1);
     buttonLayout->addWidget(circleButton, 1, 1);
-    buttonLayout->addWidget(undoButton, 0, 2);
-    buttonLayout->addWidget(redoButton, 1, 2);
+    buttonLayout->addWidget(undoButton,   0, 2);
+    buttonLayout->addWidget(redoButton,   1, 2);
     buttonWidget->setLayout(buttonLayout);
 
-    _buttonGroup->addButton(dotButton,  Dot::Type);
-    _buttonGroup->addButton(lineButton, Line::Type);
-    _buttonGroup->addButton(rectButton, Rectangle::Type);
+    _buttonGroup->addButton(dotButton,    Dot::Type);
+    _buttonGroup->addButton(lineButton,   Line::Type);
+    _buttonGroup->addButton(rectButton,   Rectangle::Type);
     _buttonGroup->addButton(circleButton, Circle::Type);
-    _buttonGroup->addButton(undoButton, 2);
-    _buttonGroup->addButton(redoButton, 3);
+    _buttonGroup->addButton(undoButton,   2);
+    _buttonGroup->addButton(redoButton,   3);
 
     connect(_buttonGroup, QOverload<int>::of(&QButtonGroup::buttonClicked),
             this, &MainWindow::buttonGroupClicked);
