@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
 
 /*
  * BUG: Are MyShapes correctly destroyed? (probably yes)
- * BUG: MouseEvent on close points gets confused
  * FIXME: Android permissions and other settings
  * FIXME: call QGraphicsItem::prepareGeometryChange() in shape destructors
  * TODO: Text
