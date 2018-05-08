@@ -5,7 +5,6 @@
 #include <QStack>
 #include <QButtonGroup>
 #include <QIcon>
-#include <QSlider>
 #include <QComboBox>
 
 #include "myshape.h"
