@@ -48,10 +48,6 @@ private:
 
     MyShape* tempShape;
 
-    QSlider* thickSlider;
-    QSlider* outSlider;
-    QSlider* colorSlider;
-
     QComboBox* thickCombo;
     QComboBox* outCombo;
     QComboBox* colorCombo;
