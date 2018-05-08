@@ -34,7 +34,9 @@ public slots:
 private:
     void createButtons();
     void createOptions();
+    QIcon createThickIcon(int);
     void createOutlineCombo();
+    QIcon createOutlineIcon(Qt::PenStyle);
     void createColorCombo();
     QIcon createColorIcon(Qt::GlobalColor);
 

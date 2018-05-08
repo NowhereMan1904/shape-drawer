@@ -160,7 +160,7 @@ void MainWindow::createButtons()
     QPixmap linePixmap(50,50);
     linePixmap.fill(Qt::transparent);
     QPainter linePainter(&linePixmap);
-    linePainter.setPen(QPen{Qt::black, 4});
+    linePainter.setPen(QPen{Qt::black, 5});
     linePainter.drawLine(5,5,45,45);
     auto lineButton = new QPushButton(linePixmap, "Line");
     lineButton->setCheckable(true);
@@ -168,7 +168,7 @@ void MainWindow::createButtons()
     QPixmap rectPixmap(50,50);
     rectPixmap.fill(Qt::transparent);
     QPainter rectPainter(&rectPixmap);
-    rectPainter.setPen(QPen{Qt::black, 4});
+    rectPainter.setPen(QPen{Qt::black, 5});
     rectPainter.drawRect(5,10,40,30);
     auto rectButton = new QPushButton(rectPixmap, "Rectangle");
     rectButton->setCheckable(true);
@@ -176,7 +176,7 @@ void MainWindow::createButtons()
     QPixmap circlePixmap(50,50);
     circlePixmap.fill(Qt::transparent);
     QPainter circlePainter(&circlePixmap);
-    circlePainter.setPen(QPen{Qt::black, 4});
+    circlePainter.setPen(QPen{Qt::black, 5});
     circlePainter.drawEllipse(5,5,40,40);
     auto circleButton = new QPushButton(circlePixmap, "Circle");
     circleButton->setCheckable(true);
@@ -209,7 +209,9 @@ void MainWindow::createOptions()
 {
     // Thickness
     for (int i=0; i!=11; ++i)
-        thickCombo->addItem(QString::number(i), i);
+        thickCombo->addItem(createThickIcon(i),
+                            QString::number(i),
+                            i);
     thickCombo->setCurrentIndex(4);
     auto thickLabel = new QLabel{"Thickness"};
     auto thickLayout = new QVBoxLayout;
@@ -237,13 +239,52 @@ void MainWindow::createOptions()
     optionWidget->setLayout(layout);
 }
 
+QIcon MainWindow::createThickIcon(int width)
+{
+    QPixmap icon(50,50);
+    icon.fill(Qt::transparent);
+    QPainter painter(&icon);
+    QPen pen;
+    pen.setWidth(width);
+    painter.setPen(pen);
+    painter.drawLine(QPoint{0,50},
+                     QPoint{50,0});
+
+    return icon;
+}
+
 void MainWindow::createOutlineCombo()
 {
-    outCombo->addItem("Solid", 1);
-    outCombo->addItem("Dash", 2);
-    outCombo->addItem("Dot", 3);
-    outCombo->addItem("Dash - Dot", 4);
-    outCombo->addItem("Dash - Dot - Dot", 5);
+    outCombo->addItem(createOutlineIcon(Qt::SolidLine),
+                      "Solid",
+                      static_cast<int>(Qt::SolidLine));
+    outCombo->addItem(createOutlineIcon(Qt::DashLine),
+                      "Dash",
+                      static_cast<int>(Qt::DashLine));
+    outCombo->addItem(createOutlineIcon(Qt::DotLine),
+                      "Dot",
+                      static_cast<int>(Qt::DotLine));
+    outCombo->addItem(createOutlineIcon(Qt::DashDotLine),
+                      "Dash - Dot",
+                      static_cast<int>(Qt::DashDotLine));
+    outCombo->addItem(createOutlineIcon(Qt::DashDotDotLine),
+                      "Dash - Dot - Dot",
+                      static_cast<int>(Qt::DashDotDotLine));
+}
+
+QIcon MainWindow::createOutlineIcon(Qt::PenStyle style)
+{
+    QPixmap icon(50,50);
+    icon.fill(Qt::transparent);
+    QPainter painter(&icon);
+    QPen pen;
+    pen.setColor(Qt::black);
+    pen.setStyle(style);
+    pen.setWidth(5);
+    painter.setPen(pen);
+    painter.drawArc(5,5,100,100,90*16,90*16);
+
+    return icon;
 }
 
 void MainWindow::createColorCombo()
@@ -283,5 +324,6 @@ QIcon MainWindow::createColorIcon(Qt::GlobalColor color)
     QPainter painter(&icon);
     painter.setBrush(color);
     painter.drawRect(0,0,50,50);
+
     return icon;
 }
